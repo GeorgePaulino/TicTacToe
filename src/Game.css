@@ -1,0 +1,174 @@
+.score {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.score>div {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.center-abs {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item button {
+    padding: 15px;
+    background: none;
+    color: white;
+    font-size: 80px;
+    line-height: 100px;
+    height: 120px;
+    width: 120px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.grid-item button:hover {
+    border-color: #6d6d6d;
+}
+
+.grid-item button:active {
+    border-color: #acacac;
+}
+
+.grid-item:nth-child(-n+3) {
+    border-bottom: var(--ttt-border);
+}
+
+.grid-item:nth-child(3n+1) {
+    border-right: var(--ttt-border);
+}
+
+.grid-item:nth-child(3n) {
+    border-left: var(--ttt-border);
+}
+
+.grid-item:nth-child(n+7) {
+    border-top: var(--ttt-border);
+}
+
+.Xbutton {
+    text-shadow: 0 0 75px #ff0000, 0 0 10px #ff6600;
+}
+
+.Ybutton {
+    text-shadow: 0 0 75px #00ff00, 0 0 10px #00ff88;
+}
+
+.info {
+    margin: 10px;
+    padding: 3px;
+    user-select: none;
+    border: 2px solid white;
+}
+
+.info.left {
+    text-align: left;
+}
+
+.winTable {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    animation-name: tableRepos;
+    animation-duration: 2s;
+}
+
+@keyframes tableRepos {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 30%;
+    }
+}
+
+#win-details {
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.opacity {
+    opacity: 0%;
+}
+
+#win-details.opacity.after-win {
+    opacity: 100%;
+    animation-name: appeardetails;
+    animation-duration: 2s;
+    pointer-events: all;
+
+}
+
+@keyframes appeardetails {
+    from {
+        opacity: 0%;
+        display: none;
+    }
+
+    to {
+        opacity: 100%;
+        display: block;
+    }
+}
+
+#win-details>div {
+    background: none;
+    font-size: 30px;
+    width: 300px;
+    height: 50px;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+#win-details>div>button {
+    height: 100%;
+    width: 100%;
+    color: white;
+    background: none;
+    font-size: 30px;
+}
+
+#win-details>.btn:hover {
+    border-color: var(--hover-color);
+}
+
+#win-details>.btn:active {
+    border-color: var(--active-color);
+}
+
+#winner {
+    text-shadow: 0 0 75px #ff0000, 0 0 10px #fbff00;
+}
