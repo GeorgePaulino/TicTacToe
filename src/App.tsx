@@ -25,8 +25,8 @@ class TittleUI extends React.Component {
           <button className="ttt-btn">{'>'}</button>
         </div>
         <div className="play">
-          <button className="ttt-btn" onClick={() =>{
-            root.render(<React.StrictMode><Game/></React.StrictMode>);
+          <button className="ttt-btn" onClick={() => {
+            root.render(<React.StrictMode><Game /></React.StrictMode>);
           }}>Play</button>
         </div>
         <div className='language'>
@@ -44,15 +44,13 @@ class TittleUI extends React.Component {
   }
 }
 
-class Home extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <div className="App">
-        <Tittle />
-        <TittleUI />
-      </div>
-    );
-  }
+function Home() {
+  return (
+    <div className="App">
+      <Tittle />
+      <TittleUI />
+    </div>
+  );
 }
 
 export default Home;

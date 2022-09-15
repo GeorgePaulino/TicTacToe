@@ -67,11 +67,11 @@
     border-top: var(--ttt-border);
 }
 
-.Xbutton {
+.table-item_cross {
     text-shadow: 0 0 75px #ff0000, 0 0 10px #ff6600;
 }
 
-.Ybutton {
+.table-item_circle {
     text-shadow: 0 0 75px #00ff00, 0 0 10px #00ff88;
 }
 
