@@ -19,13 +19,18 @@ function Game() {
         button.value = '-';
         if(gameRules.turn == 0) button.classList.add("table-item_cross");
         else button.classList.add("table-item_circle");
-        console.log(CheckWinner());
     }
 
     const CheckWinner = () => {
         let cases = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
         for (let i = 0; i < cases.length; i++) {
-            if(gameRules.table[cases[i][0]] === gameRules.table[cases[i][1]] && gameRules.table[cases[i][0]] === gameRules.table[cases[i][2]]) {
+            /*console.log('----------------------');
+            console.log(gameRules.table[cases[i][0]]);
+            console.log(gameRules.table[cases[i][1]]);
+            console.log(gameRules.table[cases[i][2]]);*/
+            if(gameRules.table[cases[i][0]] === gameRules.table[cases[i][1]] && 
+                gameRules.table[cases[i][0]] === gameRules.table[cases[i][2]] &&
+                gameRules.table[cases[i][0]] !== -1) {
                 return true;
             }
         }
