@@ -44,7 +44,7 @@ class TittleUI extends React.Component {
   }
 }
 
-class App extends React.Component {
+class Home extends React.Component {
   render(): React.ReactNode {
     return (
       <div className="App">
@@ -55,4 +55,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Home;
