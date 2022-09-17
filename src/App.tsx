@@ -1,7 +1,10 @@
 import React from 'react';
 import root from './index';
 import Game from './Game';
+import About from './About';
 import './App.css';
+
+var isCom = false;
 
 class Tittle extends React.Component {
   render(): React.ReactNode {
@@ -15,14 +18,15 @@ class Tittle extends React.Component {
 
 class TittleUI extends React.Component {
   render(): React.ReactNode {
-    const InitGame = () => { };
-
     return (
       <div className='TittleUI' id='test'>
         <div className="gameMode">
-          <button className="ttt-btn">{'<'}</button>
-          <span id="game-mode">PVP</span>
-          <button className="ttt-btn">{'>'}</button>
+          <button className="ttt-btn" onClick={(e) => {
+            let button = (e.target as HTMLInputElement);
+            isCom = button.innerHTML == "PVP" ? true : false;
+            if(isCom) button.innerHTML = "COM";
+            else button.innerHTML = "PVP"
+          }}>PVP</button>
         </div>
         <div className="play">
           <button className="ttt-btn" onClick={() => {
@@ -38,13 +42,16 @@ class TittleUI extends React.Component {
           <label className="ttt-radio" htmlFor="ptbr">
             PT • BR
           </label>
+          <button className="ttt-btn ttt-btn_i" onClick={() => {
+            root.render(<React.StrictMode><About /></React.StrictMode>);
+          }}>i</button>
         </div>
       </div>
     );
   }
 }
 
-function Home() {
+function App() {
   return (
     <div className="App">
       <Tittle />
@@ -53,4 +60,4 @@ function Home() {
   );
 }
 
-export default Home;
+export {App, isCom};
