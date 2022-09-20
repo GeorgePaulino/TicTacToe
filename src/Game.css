@@ -1,4 +1,4 @@
-:root{
+:root {
     --red-shadow: 0 0 50px #ff0000, 0 0 10px #ff6600;
     --green-shadow: 0 0 50px #00ff00, 0 0 10px #00ff88;
     --golden-shadow: 0 0 50px #ffffff, 0 0 10px #ffbb00;
@@ -7,18 +7,18 @@
 }
 
 .score {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    display: inline-block;
+    text-align: center;
     font-size: 30px;
 }
 
 .score>div {
+    display: inline;
     width: 150px;
-    height: 50px;
     text-align: center;
     line-height: 50px;
+    padding: 5px 10px;
+    margin: 0 10px;
     border: 2px solid rgb(255, 255, 255);
 }
 
@@ -38,9 +38,8 @@
     grid-template-rows: repeat(3, 150px);
 }
 
-.table_win {
+#table.table_win {
     margin-right: 40%;
-    /* bring your own prefixes */
     animation-name: table_win_repos;
     animation-duration: 2s;
 }
@@ -49,6 +48,7 @@
     from {
         margin-right: 0;
     }
+
     to {
         margin-right: 40%;
     }
@@ -124,7 +124,6 @@
     animation-name: result_details_appear;
     animation-duration: 2s;
     pointer-events: all;
-
 }
 
 @keyframes result_details_appear {
@@ -166,4 +165,59 @@
     width: 100%;
     color: white;
     background: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .score {
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .score>div {
+        width: 50px;
+        line-height: 50px;
+        border: 2px solid rgb(255, 255, 255);
+    }
+
+    #table {
+        grid-template-columns: repeat(3, 30vw);
+        grid-template-rows: repeat(3, 20vh);
+    }
+
+
+    #table.table_win {
+        margin-right: 0;
+        margin-top: 75%;
+        padding-bottom: 80px;
+    }
+
+    @keyframes table_win_repos {
+        from {
+            margin-top: 50px;
+        }
+    
+        to {
+            margin-top: 75%;
+        }
+    }
+
+    #result {
+        margin-top: 0px;
+        margin-left: 0%;
+        top: 30%;
+        position: absolute;
+    }
+
+    @keyframes result_details_appear {
+        from {
+            opacity: 0%;
+            top: 50%;
+        }
+    
+        to {
+            opacity: 100%;
+            top: 30%;
+        }
+    }    
+
 }

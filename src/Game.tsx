@@ -3,6 +3,7 @@ import root from './index';
 import {App, isCom} from './App';
 import './App.css';
 import './Game.css';
+import {lang} from './Language';
 
 interface IGameRules {
     table: Array<number>,
@@ -108,11 +109,13 @@ function Game() {
     return (
         <div className='Game'>
             <span ref={player}>X</span>
+            <br/>
             <div className="score">
-                <div className="table-item_cross">Player X</div>
+                <div className="table-item_cross">{lang['player']} X</div>
                 <div ref={scoreRef}>0 - 0</div>
-                <div className="table-item_circle">Player O</div>
+                <div className="table-item_circle">{lang['player']} O</div>
             </div>
+            <br/>
             <div ref={tableRef} id="table">
                 {gameRules.table.map((x, i) =>
                     <div className="table-item" key={i}>

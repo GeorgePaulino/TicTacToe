@@ -3,6 +3,7 @@ import root from './index';
 import Game from './Game';
 import About from './About';
 import './App.css';
+import {lang, changeLanguage} from './Language';
 
 var isCom = false;
 
@@ -31,10 +32,12 @@ class TittleUI extends React.Component {
         <div className="play">
           <button className="ttt-btn" onClick={() => {
             root.render(<React.StrictMode><Game /></React.StrictMode>);
-          }}>Play</button>
+          }}>{lang['play']}</button>
         </div>
         <div className='language'>
-          <input type="radio" id="enus" name="language" value="en" checked />
+          <input type="radio" id="enus" name="language" value="en" checked onClick={() => {
+            changeLanguage(1)
+          }} />
           <label className="ttt-radio" htmlFor="enus">
             EN • US
           </label>
