@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Dispatch, HtmlHTMLAttributes } from 'react';
+import React, { useState, useEffect } from 'react';
 import root from './index';
 import {App, isCom} from './App';
 import './App.css';
@@ -26,10 +26,10 @@ function Game() {
         let button: HTMLInputElement = (eventButton.target as HTMLInputElement);
         console.log(isCom);
         if (button.classList.contains("table-item-button_already")) return;
-        setGameRules({ table: gameRules.table.map((x, i) => i == Number(button.value) ? gameRules.turn : x), turn: gameRules.turn == 0 ? 1 : 0 });
+        setGameRules({ table: gameRules.table.map((x, i) => i === Number(button.value) ? gameRules.turn : x), turn: gameRules.turn === 0 ? 1 : 0 });
         button.classList.add("table-item-button_already");
         if(!ended){
-            if (gameRules.turn == 0) button.classList.add("table-item_cross");
+            if (gameRules.turn === 0) button.classList.add("table-item_cross");
             else button.classList.add("table-item_circle");
         }
         else button.classList.add("table-item_invalid");
@@ -54,7 +54,7 @@ function Game() {
     }
 
     const BotTurn =async () => {
-        let buttons = Array.from(document.getElementsByClassName("table-item-button")).filter((x) => x.innerHTML == '') as Array<HTMLButtonElement>;
+        let buttons = Array.from(document.getElementsByClassName("table-item-button")).filter((x) => x.innerHTML === '') as Array<HTMLButtonElement>;
         buttons.forEach((e) => {
             e.style.pointerEvents = "none";
         });
@@ -87,16 +87,16 @@ function Game() {
             let r = resultRef.current as unknown as HTMLElement;
             r.classList.add("result_end");
             let w = winnerRef.current as unknown as HTMLElement;
-            if (checkWinner == 2)
+            if (checkWinner === 2)
             {
                 w.innerHTML = "Draw";
                 w.style.textShadow = "0 0 75px #ffbb00, 0 0 10px #fbff00";
             }
             else {
-                let winner = gameRules.turn == 0 ? 1 : 0;
-                setScore(score.map((x, i) => i == winner ? x + 1 : x));
-                w.innerHTML = "Winner " + (winner == 0 ? "Red" : "Green");
-                w.style.textShadow = winner == 0 ? "0 0 75px #ff0000, 0 0 10px #ff6600" : "0 0 75px #00ff00, 0 0 10px #00ff88";
+                let winner = gameRules.turn === 0 ? 1 : 0;
+                setScore(score.map((x, i) => i === winner ? x + 1 : x));
+                w.innerHTML = "Winner " + (winner === 0 ? "Red" : "Green");
+                w.style.textShadow = winner === 0 ? "0 0 75px #ff0000, 0 0 10px #ff6600" : "0 0 75px #00ff00, 0 0 10px #00ff88";
             }
         }
     }, [gameRules]);
@@ -119,7 +119,7 @@ function Game() {
             <div ref={tableRef} id="table">
                 {gameRules.table.map((x, i) =>
                     <div className="table-item" key={i}>
-                        <button className="table-item-button" value={i} onClick={(e) => { UpdateTable(e) }}>{x == -1 ? '' : x == 0 ? 'X' : 'O'}</button>
+                        <button className="table-item-button" value={i} onClick={(e) => { UpdateTable(e) }}>{x === -1 ? '' : x === 0 ? 'X' : 'O'}</button>
                     </div>
                 )}
             </div>
@@ -127,7 +127,7 @@ function Game() {
                 <div ref={winnerRef} className="result-winner">Winner</div>
                 <div className="result-selectable" onClick={() => {
                     setEnded(false);
-                    setGameRules({ table: Array(9).fill(-1), turn: gameRules.turn == 0 ? 0 : 1 });
+                    setGameRules({ table: Array(9).fill(-1), turn: gameRules.turn === 0 ? 0 : 1 });
                     document.getElementById("table")!.className = '';
                     document.getElementById("result")!.className = '';
                     Array.from(document.getElementsByClassName("table-item-button")).forEach((button, i) => {

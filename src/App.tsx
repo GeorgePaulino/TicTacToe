@@ -3,7 +3,7 @@ import root from './index';
 import Game from './Game';
 import About from './About';
 import './App.css';
-import {lang, changeLanguage} from './Language';
+import {lang} from './Language';
 
 var isCom = false;
 
@@ -24,7 +24,7 @@ class TittleUI extends React.Component {
         <div className="gameMode">
           <button className="ttt-btn" onClick={(e) => {
             let button = (e.target as HTMLInputElement);
-            isCom = button.innerHTML == "PVP" ? true : false;
+            isCom = button.innerHTML === "PVP" ? true : false;
             if(isCom) button.innerHTML = "COM";
             else button.innerHTML = "PVP"
           }}>PVP</button>
@@ -36,7 +36,7 @@ class TittleUI extends React.Component {
         </div>
         <div className='language'>
           <input type="radio" id="enus" name="language" value="en" checked onClick={() => {
-            changeLanguage(1)
+            //changeLanguage(1)
           }} />
           <label className="ttt-radio" htmlFor="enus">
             EN • US

@@ -8,8 +8,8 @@ var lang = {
     quotel: ["Luan happy birthday mate. - 09 / 17"]
 };
 
-var language_selected = 0;
+/*var language_selected = 0;
 function changeLanguage(i:number){
     language_selected = i;
-}
-export {lang, changeLanguage};
+}*/
+export {lang};
