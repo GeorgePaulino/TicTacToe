@@ -6,9 +6,6 @@ Tic Tac Toe game developed in React JS with TypeScript.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-<br/>
-<br/>
-
 <p align="end">
 <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">
         <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
