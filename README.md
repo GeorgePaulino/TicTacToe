@@ -3,8 +3,12 @@
 # Tic Tac Toe Game
 
 Tic Tac Toe game developed in React JS with TypeScript.
+
+<br/>
+
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
+<br/>
 <br/>
 
 <p align="end">
