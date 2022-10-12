@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import root from './index';
 import {App, isCom} from './App';
-import './App.css';
-import './Game.css';
-import {lang} from './Language';
+import './style/App.css';
+import './style/Game.css';
 
 interface IGameRules {
     table: Array<number>,
@@ -111,9 +110,9 @@ function Game() {
             <span ref={player}>X</span>
             <br/>
             <div className="score">
-                <div className="table-item_cross">{lang['player']} X</div>
+                <div className="table-item_cross">Player X</div>
                 <div ref={scoreRef}>0 - 0</div>
-                <div className="table-item_circle">{lang['player']} O</div>
+                <div className="table-item_circle">Player O</div>
             </div>
             <br/>
             <div ref={tableRef} id="table">
